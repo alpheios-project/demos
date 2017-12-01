@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Tufts Homer Reading List (Advanced)</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+        <script type="text/javascript">            
+             $(document).ready(function () {                
+                   var total_all = 0;
+                  $(".seetotal").hide();
+                  $(".totalx").each(
+                    function()
+                    {
+                        var span = this;                        
+                        var url = $(this).parent("a").attr("href") + "&amp;format=xml&amp;totals=1";
+                        $.ajax({
+                            url: url,                            
+                            context: span,
+                            dataType: 'text/xml',
+                            timeout: 200000,
+                            error: function(a_req,a_status,a_e){
+                                //alert("Error: " + a_status + a_e);
+                            },
+                            success: function(a_data){
+                                var total = $(a_data).attr("total");
+                                $(this).html(a_data);
+                                total_all = total_all + total;
+                            }
+                          });
+                    }
+                  );
+            });
+        </script>
+    </head>
+    <body>
+        <h2>Tufts Homer Reading List (Advanced)</h2>
+        <table>
+        <tr>
+            <td>            
+         <div>(Reading List Total Words: 12,604 Lemmas:3,075 )</div>
+            <ul>
+                <li><a href="http://repos1.alpheios.net/exist/rest/db/xq/alpheios-text.xq?urn=urn:cts:greekLit:tlg0012.tlg002.alpheios-text-grc1:1.1-1.42" target="test">Odyssey 1.1-1.42</a>
+                    (<a href="http://repos.alpheios.net:8082/exist/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg002.alpheios-text-grc1:1.227-1.248&amp;pofs=punctuation&amp;excludepofs=1" target="test"><span class="total"></span> 293 Words, 183 Lemmas</a>)
+                    <span class="seetotal">(<a href="http://repos.alpheios.net:8082/exist/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg002.alpheios-text-grc1:1.227-1.248&amp;pofs=punctuation&amp;excludepofs=1&amp;totals=1&amp;format=xml" target="test"><span class="total"></span>See Totals</a>)</span></li>
+                <li><a href="http://repos1.alpheios.net/exist/rest/db/xq/alpheios-text.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:1.1-1.244" target="test">Iliad 1.1-1.244</a>
+                    (<a href="http://repos.alpheios.net:8082/exist/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:1.1-1.244&amp;pofs=punctuation&amp;excludepofs=1" target="test"><span class="total"></span>1,819 Words, 830 Lemmas</a>)
+                    <span class="seetotal">(<a href="http://repos.alpheios.net:8082/exist/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:1.1-1.244&amp;pofs=punctuation&amp;excludepofs=1&amp;totals=1&amp;format=xml" target="test"><span class="total"></span>See Totals</a>)</span></li>
+                <li><a href="http://repos1.alpheios.net/exist/rest/db/xq/alpheios-text.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:3.111-3.244" target="test">Iliad 3.111-3.244</a>
+                    (<a href="http://repos1.alpheios.net/exist3/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:3.111-3.244&amp;pofs=punctuation&amp;excludepofs=1" target="test"><span class="total"></span>946 Words, 552 Lemmas</a>)
+                    <span class="seetotal">(<a href="http://repos1.alpheios.net/exist3/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:3.111-3.244&amp;pofs=punctuation&amp;excludepofs=1&amp;totals=1&amp;format=xml" target="test"><span class="total">See Totals</span></a>)</span></li>
+                <li><a href="http://repos1.alpheios.net/exist/rest/db/xq/alpheios-text.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:6.390-6.465" target="test">Iliad 6.390-6.465</a>
+                    (<a href="http://repos1.alpheios.net/exist3/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:6.390-6.465&amp;pofs=punctuation&amp;excludepofs=1" target="test"><span class="total"></span>553 Words, 394 Lemmas</a>)
+                    <span class="seetotal">(<a href="http://repos1.alpheios.net/exist3/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:6.390-6.465&amp;pofs=punctuation&amp;excludepofs=1&amp;totals=1&amp;format=xml" target="test"><span class="total"></span>See Totals</a>)</span></li>            
+                <li><a href="http://repos1.alpheios.net/exist/rest/db/xq/alpheios-text.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:9.182-9.452" target="test">Iliad 9.182-9.452</a>
+                    (<a href="http://repos1.alpheios.net/exist3/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:9.182-9.452&amp;pofs=punctuation&amp;excludepofs=1" target="test"><span class="total"></span>1,972 Words, 964 Lemmas</a>)
+                    <span class="seetotal">(<a href="http://repos1.alpheios.net/exist3/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:9.182-9.452&amp;pofs=punctuation&amp;excludepofs=1&amp;totals=1&amp;format=xml" target="test"><span class="total"></span>See Totals</a>)</span></li>            
+                <li><a href="http://repos1.alpheios.net/exist/rest/db/xq/alpheios-text.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:9.581-9.655" target="test">Iliad 9.581-9.655</a>
+                    (<a href="http://repos1.alpheios.net/exist3/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:9.581-9.655&amp;pofs=punctuation&amp;excludepofs=1" target="test"><span class="total"></span>550 Words, 365 Lemmas</a>)
+                    <span class="seetotal">(<a href="http://repos1.alpheios.net/exist3/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:9.581-9.655&amp;pofs=punctuation&amp;excludepofs=1&amp;totals=1&amp;format=xml" target="test"><span class="total"></span>See Totals</a>)</span></li>            
+                <li><a href="http://repos1.alpheios.net/exist/rest/db/xq/alpheios-text.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:12.277-12.328" target="test">Iliad 12.277-12.328</a>
+                    (<a href="http://repos1.alpheios.net/exist3/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:12.277-12.328&amp;pofs=punctuation&amp;excludepofs=1" target="test"><span class="total"></span>376 Words, 302 Lemmas</a>)
+                    <span class="seetotal">(<a href="http://repos1.alpheios.net/exist3/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:12.277-12.328&amp;pofs=punctuation&amp;excludepofs=1&amp;totals=1&amp;format=xml" target="test"><span class="total"></span>See Totals</a>)</span></li>            
+                <li><a href="http://repos1.alpheios.net/exist/rest/db/xq/alpheios-text.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:16.1-16.100" target="test">Iliad 16</a>
+                    (<a href="http://repos1.alpheios.net/exist3/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:16&amp;pofs=punctuation&amp;excludepofs=1" target="test"><span class="total"></span>6,095 Words, 2,014 Lemmas</a>)
+                    <span class="seetotal">(<a href="http://repos1.alpheios.net/exist3/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:16&amp;pofs=punctuation&amp;excludepofs=1&amp;totals=1&amp;format=xml" target="test"><span class="total"></span>See Totals</a>)</span></li>            
+            </ul>
+            </td>                            
+            </tr>                
+        </table>
+        <div style="font-size:small; font-style:italic;">(Note: word totals are approximates and lemma totals are based on possible lemmas for each form.)</div>
+    </body>
+</html>

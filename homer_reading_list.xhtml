@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Homer Reading List Demo</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+        <script type="text/javascript">            
+             $(document).ready(function () {                
+                   var total_all = 0;
+                  $(".totalx").each(
+                    function()
+                    {
+                        var span = this;                        
+                        var url = $(this).parent("a").attr("href") + "&amp;format=xml&amp;totals=1";
+                        $.ajax({
+                            url: url,                            
+                            context: span,
+                            dataType: 'text/xml',
+                            timeout: 20000,
+                            error: function(a_req,a_status,a_e){
+                                //alert("Error: " + a_status + a_e);
+                            },
+                            success: function(a_data){
+                                var total = $(a_data).attr("total");
+                                $(this).html(a_data);
+                                total_all = total_all + total;
+                            }
+                          });
+                    }
+                  );
+            });
+        </script>
+    </head>
+    <body>
+        <h2>Homer Reading List Demo</h2>
+        <table>
+        <tr>
+            <td>            
+         <div style="font-weight:bold;">Iliad</div>
+         <div>(Reading List <a href="http://repos1.alpheios.net/exist3/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:1.1-1.120&amp;pofs=punctuation&amp;pofs=conjunction&amp;pofs=article&amp;pofs=particle&amp;excludepofs=1" target="test">Total Words: 738, Lemmas: 419</a>)</div>
+            <ul>
+                <li><a href="http://repos1.alpheios.net/exist/rest/db/xq/alpheios-text.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:1.1-1.40" target="test">1.1-1.40</a>
+                    (<a href="http://repos.alpheios.net:8082/exist/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:1.1-1.40&amp;pofs=punctuation&amp;pofs=conjunction&amp;pofs=article&amp;pofs=particle&amp;excludepofs=1" target="test"><span class="total"></span>277 Words, 218 Lemmas</a>)</li>
+                <li><a href="http://repos1.alpheios.net/exist/rest/db/xq/alpheios-text.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:1.41-1.80" target="test">1.41-1.80</a>
+                    (<a href="http://repos1.alpheios.net/exist3/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:1.41-1.80&amp;pofs=punctuation&amp;pofs=conjunction&amp;pofs=article&amp;pofs=particle&amp;excludepofs=1" target="test"><span class="total"></span>262 Words, 218 Lemmas</a>)</li>
+                <li><a href="http://repos1.alpheios.net/exist/rest/db/xq/alpheios-text.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:1.81-1.120" target="test">1.81-1.120</a>
+                    (<a href="http://repos1.alpheios.net/exist3/rest/db/xq/alpheios-vocab.xq?urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:1.81.1-1.120&amp;pofs=punctuation&amp;pofs=conjunction&amp;pofs=article&amp;pofs=particle&amp;excludepofs=1" target="test"><span class="total"></span>199 Words, 164 Lemmas</a>)</li>            
+            </ul>
+            </td>                            
+            </tr>                
+        </table>
+        <div style="font-size:small; font-style:italic;">(Note: totals exclude particles, articles and conjunctions, and are based on possible lemmas for each form.)</div>
+        <div>
+        <iframe id="test" width="100%" height="800px"></iframe>
+        </div>    
+    </body>
+</html>
